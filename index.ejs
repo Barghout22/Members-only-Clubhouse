@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Members only clubhouse</title>
+  </head>
+  <body>
+    <% if (user) {%>
+    <h1>Welcome back,<%= user.firstname %></h1>
+    <a href="/log-out"><button>Log out</button></a>
+    <h2>write a post</h2>
+    <form action="/new-post" method="post" class="postForm">
+      <div class="titleContainer">
+        <label for="title">post title</label>
+        <input type="text" name="title" id="title" />
+      </div>
+      <textarea
+        name="postText"
+        id="postText"
+        cols="30"
+        rows="10"
+        placeholder="write your post here"
+      ></textarea>
+      <button type="submit">add post</button>
+    </form>
+    <%if(user.membership_status==="regular"){%>
+      <a href="/upgrade-status"><button>upgrade your membership status</button></a>
+      <%}%>
+    <h2>other users posts</h2>
+    <%for (let index in posts){%>
+    <div>
+      <h3><%= posts[index].title %></h2>
+      <p><%= posts[index].post_body %></p>
+      <p>
+        by <%= posts[index].postingUser.firstname %> <%=
+        posts[index].postingUser.lastname %> at <%= posts[index].timepstamp.toUTCString() %>
+      </p>
+    </div>
+    <%}%> <% } else { %>
+    <h1>hello stranger!</h1>
+    <a href="/sign-up"><button>click here to sign up</button></a>
+    <a href="/log-in"
+      ><button>or here if you already have an account</button></a
+    >
+    <p>sign up or log in to be able to post and view other users</p>
+    <h2>other users posts</h2>
+    <%for (let index in posts){%>
+    <div>
+      <h3><%= posts[index].title %></h2>
+      <p><%= posts[index].post_body %></p>
+      <p>
+        by anonymous at <%=
+        posts[index].timepstamp.toUTCString() %>
+      </p>
+    </div>
+    <%}%> <%}%>
+  </body>
+</html>

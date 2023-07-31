@@ -1,0 +1,10 @@
+<h1>enter the secret password to upgrade your membership status to admin</h1>
+<form action="" method="post">
+  <label for="adminPwd">enter password</label>
+  <input type="password" name="adminPwd" id="adminPwd" />
+  <input type="submit" />
+</form>
+<%if(message){%>
+<p><%= message %></p>
+<a href="/"><button>go back to home page</button></a>
+<%}%>

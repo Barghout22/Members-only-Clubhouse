@@ -1,6 +1,9 @@
 {
   "name": "members-only-clubhouse",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=16.15.1"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {

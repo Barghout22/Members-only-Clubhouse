@@ -33,8 +33,10 @@
       <h3><%= posts[index].title %></h2>
       <p><%= posts[index].post_body %></p>
       <p>
-        by <%= posts[index].postingUser.firstname %> <%=
-        posts[index].postingUser.lastname %> at <%= posts[index].timepstamp.toUTCString() %>
+        by <b>
+           <%= posts[index].postingUser.firstname %> <%=
+          posts[index].postingUser.lastname %>
+        </b> at <%= posts[index].timepstamp.toUTCString() %>
       </p>
     </div>
     <br>
@@ -51,7 +53,7 @@
       <h3><%= posts[index].title %></h2>
       <p><%= posts[index].post_body %></p>
       <p>
-        by anonymous at <%=
+        by <b>anonymous</b> at <%=
         posts[index].timepstamp.toUTCString() %>
       </p>
     </div>

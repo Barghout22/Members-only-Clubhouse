@@ -11,6 +11,7 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 require("dotenv").config();
 
+const port=process.env.PORT||3000;
 const mongoDb = process.env.MONGODB_URI;
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
@@ -178,4 +179,4 @@ app.post("/upgrade-status", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("app listening on port 3000!"));
+app.listen(port,"0.0.0.0", () => console.log("app listening on port 3000!"));

@@ -39,6 +39,7 @@ const Post = mongoose.model(
 const app = express();
 app.set("views", __dirname);
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 passport.use(
   new LocalStrategy(async (username, password, done) => {

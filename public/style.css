@@ -1,0 +1,9 @@
+form.postForm {
+  display: flex;
+  flex-direction: column;
+}
+div.titleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
